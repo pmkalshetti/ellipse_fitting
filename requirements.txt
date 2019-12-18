@@ -1,0 +1,4 @@
+matplotlib==3.0.2
+numpy==1.17.1
+tensorflow-gpu==2.0.0
+tensorflow-graphics-gpu==1.0.0
