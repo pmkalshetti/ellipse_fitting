@@ -37,10 +37,14 @@ class Minimizer:
         )
 
     def per_iteration_callback(self, idx_iter, val_obj, variables):
-        print(f"Iteration: {idx_iter:3d}, Objective: {val_obj:.2f}")
+        print(f"Iteration: {idx_iter:2d}, Objective: {val_obj:.2f}")
         self.model.set_theta(variables[0])  # VERY IMPORTANT!
         self.plot()
         plt.pause(1)
+
+        # save fig
+        # self.fig.suptitle(f"Iteration: {idx_iter:3d}")
+        # self.fig.savefig(f"media_readme/{idx_iter:02d}.png")
 
     def plot(self):
         self.ax.clear()
