@@ -5,6 +5,9 @@ The correspondences on the parametric curve are simultaneously minimized along w
 
 Thanks to Andrew Fitzgibbon for this trick(http://www.fitzgibbon.ie/bmvc15_tutorial).
 
+## Result
+![Fitting Iterations](media_readme/fitting.gif)
+
 ## Setup
 The code uses `python3`.
 Assuming `python3-pip` is installed (specifically use a [virtual environment](https://docs.python.org/3/library/venv.html)), the dependencies can be installed using

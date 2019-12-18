@@ -21,4 +21,7 @@ class Ellipse:
 
     def plot(self, ax):
         points_on_model = self.evaluate(tf.linspace(0., 2*np.pi, 100))
-        ax.plot(points_on_model[:, 0], points_on_model[:, 1])
+        ax.plot(
+            points_on_model[:, 0], points_on_model[:, 1],
+            label="model", c="orange"
+        )

@@ -26,7 +26,7 @@ class Data:
         return samples
 
     def plot(self, ax, xlim=(0, 15), ylim=(0, 15)):
-        ax.scatter(self.samples[:, 0], self.samples[:, 1], s=8)
+        ax.scatter(self.samples[:, 0], self.samples[:, 1], s=10, label="data")
         ax.set_xlim(*xlim)
         ax.set_ylim(*ylim)
 

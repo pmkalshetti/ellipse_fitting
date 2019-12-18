@@ -1,0 +1,9 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# vim swap files
+*.swp
+
+# Desktop service store files
+*.DS_Store
