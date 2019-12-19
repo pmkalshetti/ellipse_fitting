@@ -38,8 +38,8 @@ class Minimizer:
             max_iterations=n_iters,
             callback=self.per_iteration_callback if flag_callback else None
         )
-        print("Minimization Complete!")
-        print(f"Ellipse parameters (theta): {variables[0]}")
+
+        return variables[0]
 
     def per_iteration_callback(self, idx_iter, val_obj, variables):
         print(f"Iteration: {idx_iter:2d}, Objective: {val_obj:.2f}")
@@ -109,8 +109,7 @@ class Minimizer:
             if flag_callback:
                 self.per_iteration_callback(idx_iter+1, val_obj, variables)
 
-        print("Minimization Complete!")
-        print(f"Ellipse parameters (theta): {variables[0]}")
+        return variables[0]
 
 
 def _values_and_jacobian(residuals, variables):
@@ -168,6 +167,9 @@ if __name__ == "__main__":
     minimizer = Minimizer(data, model, parameters_init, True)
 
     if args.flag_tf:
-        minimizer.minimize_tf_lm(args.flag_callback)
+        theta = minimizer.minimize_tf_lm(args.flag_callback)
     else:
-        minimizer.minimize_my_lm(args.flag_callback)
+        theta = minimizer.minimize_my_lm(args.flag_callback)
+
+    print("Minimization Complete!")
+    print(f"Ellipse parameters (theta): {theta}")
