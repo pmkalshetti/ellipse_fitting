@@ -1,7 +1,8 @@
 # Ellipse Fitting
 A noisy data is sampled from a 2-D ellipse. The task is to estimate parameters of this ellipse from the data.
 
-The correspondences on the parametric curve are simultaneously minimized along with the ellipse parameters (`theta` in code) using Leverberg-Marquardt nonlinear optimizer.
+The correspondences on the parametric curve are simultaneously minimized along with the ellipse parameters (`theta` in code) using Leverberg-Marquardt (LM) nonlinear optimizer.
+The LM implementation is inspired from [tensorflow_graphics](https://github.com/tensorflow/graphics/blob/master/tensorflow_graphics/math/optimizer/levenberg_marquardt.py).
 
 Thanks to Andrew Fitzgibbon for this trick(http://www.fitzgibbon.ie/bmvc15_tutorial).
 
@@ -25,3 +26,4 @@ python data.py
 ```python
 python minimize.py
 ```
+To use tensorflow's implementation of Levenberg Marquardt algorithm, add the optional argument `-tf`.
