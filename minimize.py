@@ -25,10 +25,15 @@ class Minimizer:
 
     def objective(self, theta, parameters):
         points_on_model = self.model.evaluate(parameters)
-        distance = tf.norm(self.data.samples - points_on_model, axis=0)
-        # Note: norm works better than square
 
-        return tf.reduce_sum(distance)
+        # WEIRD! in below block norm axis is wrong, still works better!
+        # distance = tf.norm(self.data.samples - points_on_model, axis=0)
+        # return tf.reduce_sum(distance)
+
+        distance = tf.reduce_sum(
+            tf.norm(self.data.samples - points_on_model, axis=1)**2
+        )
+        return distance
 
     def minimize_tf_lm(self, flag_callback=False, n_iters=20):
         import tensorflow_graphics as tfg  # used here since import is slow
