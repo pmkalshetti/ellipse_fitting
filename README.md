@@ -7,7 +7,17 @@ The LM implementation is inspired from [tensorflow_graphics](https://github.com/
 Thanks to Andrew Fitzgibbon for this trick(http://www.fitzgibbon.ie/bmvc15_tutorial).
 
 ## Result
-![Fitting Iterations](media_readme/fitting.gif)
+**True Parameters**: [3, 2, 5, 4, 4, 7]
+
+**Fitted (using squared error) Parameters**: [2.6, 2.3, 4.7, 4.1, 4.2, 7.1]
+
+**Fitted (using absolute error) Parameters**: [1.7, 3.0, 5.2, 4.5, 4.1, 7.3]
+
+### Squared Error  Metric
+![Squared Fitting Iterations](media_readme/squared_fitting/fitting.gif)
+
+### Absolute Error  Metric
+![Absolute Fitting Iterations](media_readme/absolute_fitting/fitting.gif)
 
 ## Setup
 The code uses `python3`.

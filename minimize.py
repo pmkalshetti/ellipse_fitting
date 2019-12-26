@@ -23,17 +23,19 @@ class Minimizer:
             self.fig = plt.figure()
             self.ax = self.fig.add_subplot(111)
 
-    def objective(self, theta, parameters):
+    def objective(self, theta, parameters, metric="absolute"):
+        self.model.set_theta(theta)
         points_on_model = self.model.evaluate(parameters)
 
-        # WEIRD! in below block norm axis is wrong, still works better!
-        # distance = tf.norm(self.data.samples - points_on_model, axis=0)
-        # return tf.reduce_sum(distance)
+        if metric == "squared":
+            distance = (self.data.samples - points_on_model) ** 2
+        elif metric == "absolute":
+            # absolute error has a good linear approximation
+            distance = tf.abs(self.data.samples - points_on_model)
+        else:
+            raise NotImplementedError("Metric not implemented")
 
-        distance = tf.reduce_sum(
-            tf.norm(self.data.samples - points_on_model, axis=1)**2
-        )
-        return distance
+        return tf.reduce_mean(distance)
 
     def minimize_tf_lm(self, flag_callback=False, n_iters=20):
         import tensorflow_graphics as tfg  # used here since import is slow
@@ -172,9 +174,9 @@ if __name__ == "__main__":
     minimizer = Minimizer(data, model, parameters_init, True)
 
     if args.flag_tf:
-        theta = minimizer.minimize_tf_lm(args.flag_callback)
+        theta = minimizer.minimize_tf_lm(args.flag_callback, 10)
     else:
-        theta = minimizer.minimize_my_lm(args.flag_callback)
+        theta = minimizer.minimize_my_lm(args.flag_callback, 10)
 
     print("Minimization Complete!")
     print(f"Ellipse parameters (theta): {theta}")
