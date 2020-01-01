@@ -7,3 +7,6 @@ __pycache__/
 
 # Desktop service store files
 *.DS_Store
+
+# Log files
+log
