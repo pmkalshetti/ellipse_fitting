@@ -30,6 +30,8 @@ pip install -r requirements.txt
 
 ## Running Code
 ```python
-python data.py [-m squared]
+python fit_ellipse_to_data.py
 ```
-
+Optional Arguments:
+* `-m absolute` for metric
+* `-s 0.1` for noise standard deviation
