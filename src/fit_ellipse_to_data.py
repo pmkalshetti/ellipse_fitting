@@ -179,6 +179,7 @@ class Data:
                 points_on_ellipse[:, 0], points_on_ellipse[:, 1]
             )
             fig.canvas.draw()
+            plt.pause(.01)
             # fig.savefig(f"log/{metric}/{idx_iter:03d}.png")
         print("Fitting complete.")
 
