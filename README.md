@@ -9,9 +9,9 @@ Thanks to Andrew Fitzgibbon for this trick(http://www.fitzgibbon.ie/bmvc15_tutor
 ## Result
 **True Parameters**: [3, 2, 5, 4, 5, 7]
 
-**Fitted (using squared error) Parameters**: [1.88, 2.82, 5.24, 1.61, 5.38, 7.79]
+**Fitted (using squared error) Parameters**: [1.96, 3.02, 5.01, 1.52, 5.21, 7.88]
 
-**Fitted (using absolute error) Parameters**: [1.86, 2.62, 5.36, 1.64, 5.08, 8.06]
+**Fitted (using absolute error) Parameters**: [1.87, 2.66, 5.35, 1.59, 5.04, 8.06]
 
 ### Squared Error  Metric
 ![Squared Fitting Iterations](media_readme/squared.gif)
@@ -19,7 +19,6 @@ Thanks to Andrew Fitzgibbon for this trick(http://www.fitzgibbon.ie/bmvc15_tutor
 ### Absolute Error  Metric
 ![Absolute Fitting Iterations](media_readme/absolute.gif)
 
-Note: The objective values cannot be compared, because they depend on the metric used.
 
 ## Setup
 The code uses `python3`.
@@ -29,9 +28,11 @@ pip install -r requirements.txt
 ```
 
 ## Running Code
+#### Visualize Data
 ```python
-python fit_ellipse_to_data.py
+python src/data.py
 ```
-Optional Arguments:
-* `-m absolute` for metric
-* `-s 0.1` for noise standard deviation
+#### Fit ellipse to data
+```python
+python src/fit.py
+```
