@@ -210,7 +210,7 @@ if __name__ == "__main__":
 
     params_ellipse_final = ellipse_fitter.fit(
         params_ellipse_init, params_points_init,
-        flag_plot=True, flag_save=True
+        flag_plot=True, flag_save=False
     )
 
     np.set_printoptions(precision=2, suppress=True)
